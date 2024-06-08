@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PApplication {
 
 	public static void main(String[] args) {
+		String port = System.getenv("PORT");
+        System.out.println("PORT environment variable: " + port);
 		SpringApplication.run(PApplication.class, args);
+		Environment env = app.run(args).getEnvironment();
+        String port = env.getProperty("server.port");
+        System.out.println("Server started on port: " + port);
 	}
 
 }
